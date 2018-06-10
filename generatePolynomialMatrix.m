@@ -1,7 +1,6 @@
 function M = generatePolynomialMatrix(n,u)
-s = size(u);
-M = zeros(s(1),n);
-for row = 1:size(u)
+M = zeros(length(u),n);
+for row = 1:length(u)
     for col = 0:n
         M(row, col+1) = u(row)^col;
     end

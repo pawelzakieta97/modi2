@@ -41,14 +41,14 @@ if 1>0
             ErrorsWerRek(rzad, stopien) = norm(ywer - yModWerRek(max(nB,nA)+1:end));
             
             if containsVector(plots,[rzad,stopien])
-                fig = figure('rend','painters','pos',[10 10 1000 1000]);
+                fig = figure('rend','painters','pos',[10 10 1400 600]);
                 subplot(2,1,1);
                 plot(1:mucz,ucz(:,1),'g');
                 hold on;
                 plot(1:mucz,ucz(:,2),'b');
                 plot(1:mucz,yModUczRek,'r');
                 title(["OdpowiedŸ modelu w trybie z rekurencj¹" "dla danych ucz¹cych rzêdu "+num2str(rzad) "i stopniem wielomianiów"+num2str(stopien)]);
-                legend("sygna³ steruj¹cy ucz¹cy","sygna³ wyjœciowy ucz¹cy","sygna³ wyjœciowy wyznaczonego modelu",'Location','Best');
+                legend("sygna³ steruj¹cy ucz¹cy","sygna³ wyjœciowy ucz¹cy","sygna³ wyjœciowy wyznaczonego modelu");
                 grid on;
 
                 subplot(2,1,2);
@@ -57,7 +57,7 @@ if 1>0
                 plot(1:mwer,wer(:,2),'b');
                 plot(1:mwer,yModWerRek,'r');
                 title(["OdpowiedŸ modelu w trybie z rekurencj¹" "dla danych weryfikuj¹cych rzêdu "+num2str(rzad) "i stopniem wielomianiów"+num2str(stopien)]);
-                legend("sygna³ steruj¹cy weryfikuj¹cy","sygna³ wyjœciowy weryfikuj¹cy","sygna³ wyjœciowy wyznaczonego modelu",'Location','Best');
+                legend("sygna³ steruj¹cy weryfikuj¹cy","sygna³ wyjœciowy weryfikuj¹cy","sygna³ wyjœciowy wyznaczonego modelu");
                 grid on;
 
                 fileName = ['2d\2b rekurencyjny rzedu ', num2str(rzad),' i stopnia',num2str(stopien), '.svg'];
@@ -67,14 +67,14 @@ if 1>0
 
 
 
-                fig = figure('rend','painters','pos',[10 10 1000 1000]);
+                fig = figure('rend','painters','pos',[10 10 1400 600]);
                 subplot(2,1,1);
                 plot(1:mucz,ucz(:,1),'g');
                 hold on;
                 plot(1:mucz,ucz(:,2),'b');
                 plot(max(nB,nA)+1:mucz,M1*w,'r');
                 title(["OdpowiedŸ modelu w trybie bez rekurencji" "dla danych ucz¹cych rzêdu "+num2str(rzad) "i stopniem wielomianiów"+num2str(stopien)]);
-                legend("sygna³ steruj¹cy ucz¹cy","sygna³ wyjœciowy ucz¹cy","sygna³ wyjœciowy wyznaczonego modelu",'Location','Best');
+                legend("sygna³ steruj¹cy ucz¹cy","sygna³ wyjœciowy ucz¹cy","sygna³ wyjœciowy wyznaczonego modelu");
                 grid on;
 
                 subplot(2,1,2);
@@ -83,7 +83,7 @@ if 1>0
                 plot(1:mwer,wer(:,2),'b');
                 plot(max(nB,nA)+1:mwer,M2*w,'r');
                 title(["OdpowiedŸ modelu w trybie bez rekurencji" "dla danych weryfikuj¹cych rzêdu "+num2str(rzad) "i stopniem wielomianiów"+num2str(stopien)]);
-                legend("sygna³ steruj¹cy weryfikuj¹cy","sygna³ wyjœciowy weryfikuj¹cy","sygna³ wyjœciowy wyznaczonego modelu",'Location','Best');
+                legend("sygna³ steruj¹cy weryfikuj¹cy","sygna³ wyjœciowy weryfikuj¹cy","sygna³ wyjœciowy wyznaczonego modelu");
                 grid on;
 
                 fileName = ['2d\2b bez rekurencji rzedu ', num2str(rzad),' i stopnia',num2str(stopien), '.svg'];

@@ -1,3 +1,4 @@
 function [ucz,wer] = splitData(data)
-ucz = data(1:2:end,:);
-wer = data(2:2:end,:);
+sorted = sortrows(data,2);
+ucz = sorted(1:2:end,:);
+wer = sorted(2:2:end,:);

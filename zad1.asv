@@ -3,16 +3,16 @@ scatter(daneStat(:,1),daneStat(:,2));
 [ucz, wer] = splitData(daneStat);
 
 %generowanie wykresu wszystkich danych statycznych
-figure('rend','painters','pos',[10 10 800 500]);
+figure('rend','painters','pos',[10 10 600 600]);
 hold on;
-title('Dane statyczne');
 scatter(daneStat(:,1),daneStat(:,2),'b');
 grid on;
+legend("dane statyczne");
 fileName = '1\1a.svg';
 print('-dsvg','-r600', fileName);
 
 %generowanie wykresow dla 2 zbiorow danych
-figure('rend','painters','pos',[10 10 1000 400]);
+figure('rend','painters','pos',[10 10 1200 600]);
 subplot(1,2,1);
 scatter(ucz(:,1),ucz(:,2),'b');
 grid on;
@@ -32,14 +32,12 @@ figure('rend','painters','pos',[10 10 1200 600]);
 subplot(1,2,1);
 scatter(ucz(:,1),ucz(:,2),'b');
 hold on;
-title('aproksymacja danych uczacych funckj¹ liniow¹');
 fplot(@(x) polynomial(w,x),[-1 1],'g');
 grid on;
 legend("dane ucz¹ce", "dopasowany wielomian");
 subplot(1,2,2);
 scatter(wer(:,1),wer(:,2),'r');
 hold on;
-title('aproksymacja danych weryfikuj¹cych funckj¹ liniow¹');
 fplot(@(x) polynomial(w,x),[-1 1],'g');
 grid on;
 legend("dane weryfikuj¹ce","dopasowany wielomian");
@@ -63,16 +61,16 @@ for i =1:15
     subplot(1,2,1);
     
     scatter(ucz(:,1),ucz(:,2),'b');
-    title(['Aproksymacja wielomianem ' num2str(i) '. stopnia' newline 'Dane ucz¹ce, b³¹d = ' num2str(errorsUcz(i))]);
+    title(['Aproksymacja wielomianem ' num2str(i) '- tego stopnia' newline 'Dane ucz¹ce, b³¹d = ' num2str(errorsUcz(i))]);
     hold on;
     fplot(@(x) polynomial(w,x),[-1 1],'g');
     grid on;
     legend("dane ucz¹ce", "dopasowany wielomian");
     xlabel('x');
-    ylabel('y(x)');
+    ylabel('y(');
     subplot(1,2,2);
     scatter(wer(:,1),wer(:,2),'r');
-    title(['Aproksymacja wielomianem ' num2str(i) '. stopnia' newline 'Dane weryfikuj¹ce, b³¹d = ' num2str(errorsWer(i))]);
+    title(['Aproksymacja wielomianem ' num2str(i) '- tego stopnia' newline 'Dane weryfikuj¹ce, b³¹d = ' num2str(errorsWer(i))]);
     hold on;
     fplot(@(x) polynomial(w,x),[-1 1],'g');
     grid on;
@@ -87,9 +85,7 @@ s=3:15;
 semilogy(s',errorsUcz(3:15),'b','Marker','o');
 hold on;
 grid on;
-xlabel('stopieñ wielomianu');
-ylabel('norma residuum');
-plot(s',errorsWer(3:15),'r','Marker','o');
+semilogy(s',errorsWer(3:15),'r','Marker','o');
 title('B³¹d aproksymacji w funckji stopnia wielomianu');
 legend("dane ucz¹ce", "dane weryfikuj¹ce");
 
